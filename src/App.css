@@ -1,0 +1,27 @@
+body {
+  background-color: #090a0e;
+  color: white;
+}
+
+.center {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  background-color: #0f1014;
+  padding: 15px;
+
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.movie-image {
+  width: 100%;
+}
