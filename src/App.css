@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Manrope&family=Poppins:ital,wght@1,200&family=Rubik:wght@300&display=swap");
 body {
   background-color: #090a0e;
   color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .center {
@@ -8,10 +10,76 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.header-content {
+.header {
+  height: 100px;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 30px;
+}
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  margin-right: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.2rem 0.6rem;
+  position: relative;
+}
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  height: 3px;
+  width: 0;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
+  background-color: #484040e8;
+}
+nav ul li a:hover:before {
+  width: 100%;
+}
+nav ul li a:focus {
+  background-color: #484040e8;
+  opacity: 0.2px;
+  border-radius: 20px;
+}
+nav ul li a:focus::before {
+  width: 0%;
+}
+
+.input-text {
+  outline: none;
+  border: 1px solid #484040e8;
+  border-radius: 2rem 0 0 2rem;
+  padding: 0.2rem 1rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #484040e8;
+  box-shadow: inset 0 5px 10px #484040e8;
+}
+
+.input-text::placeholder {
+  color: white;
+}
+.search-btn button {
+  background-color: #484040e8;
+  box-shadow: inset 0 5px 10px #121111e8;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0 2rem 2rem 0;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid #484040e8;
 }
 
 .container {
@@ -20,8 +88,102 @@ body {
 
   display: grid;
   gap: 15px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.movie-image {
+.movie {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  background-color: #484040e8;
+  margin: 1rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+.poster {
   width: 100%;
+}
+.movie-placeholder {
+  min-height: 359px;
+  color: #0f1014;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.movie-details .box {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.movie-details .title {
+  width: 160px;
+  text-align: center;
+}
+.movie-details .overview {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-height: 100%;
+  background-color: #484040e8;
+  opacity: 0.9;
+  color: white;
+  box-sizing: border-box;
+  padding: 1rem;
+  transition: all 0.4s ease-in-out;
+  overflow-y: auto;
+  transform: translateY(101%);
+}
+.movie-details:hover .overview {
+  transform: translateY(0%);
+}
+
+.button {
+  background-color: #0f1014;
+  color: white;
+  outline: none;
+  border: 1px solid white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.rating {
+  background-color: #484040e8;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #484040e8;
+  box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+@media (max-width: 900px) {
+  .header {
+    background-color: #484040e8;
+    height: 180px;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+  nav ul li {
+    padding-top: 10px;
+  }
+  .search-btn {
+    width: 200px;
+    margin-right: 100px;
+  }
 }

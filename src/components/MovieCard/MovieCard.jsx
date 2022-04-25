@@ -3,17 +3,20 @@ import "../../App.css";
 
 function MovieCard({ movie }) {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
-  console.log(movie);
+
   return (
-    <div className={"movie-card"}>
-      {movie.poster_path ? (
-        <img
-          className={"movie-image"}
-          src={`${IMAGE_PATH}${movie.poster_path}`}
-          alt=""
-        />
-      ) : null}
-      <h5>{movie.title}</h5>
+    <div className={"movie center"}>
+      <img src={IMAGE_PATH + movie.poster_path} className={'poster'} alt=''/>
+      <div className={"movie-details"}>
+        <div className={"box"}>
+          <h4 className={"title"}>{movie.title}</h4>
+          <p className={"rating"}>{movie.vote_average}</p>
+        </div>
+        <div className={"overview"}>
+          <h1>overview</h1>
+          {movie.overview}
+        </div>
+      </div>
     </div>
   );
 }
