@@ -1,7 +1,7 @@
 import React from "react";
 import "../../App.css";
 
-function MovieCard({ movie }) {
+const MovieCard = ({ movie }) => {
   let IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
 
   return (
@@ -21,6 +21,6 @@ function MovieCard({ movie }) {
       </div>
     </>
   );
-}
+};
 
 export default MovieCard;
