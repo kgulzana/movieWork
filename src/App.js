@@ -4,13 +4,14 @@ import MovieCard from "./components/MovieCard/MovieCard.jsx";
 import "./App.css";
 
 let arr = ["Popular", "Theatre", "Kids", "Drama", "Comedie"];
+
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [url_set, setUrl] = useState(url);
   const [search, setSearch] = useState();
 
   useEffect(() => {
-    fetch(`${url_set}`)
+    fetch(`${url}`)
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results);
@@ -49,19 +50,18 @@ const App = () => {
   };
   const searchMovie = (evt) => {
     if (evt.key == "Enter") {
-      // url =
-      //   base_url +
-      //   "/search/movie?api_key=e778a222f0d3090ab9b3bb2dc8e75472&query=" +
-      //   search;
-      // setUrl(url);
-      // setSearch(" ");
-      console.log("hello");
+      url =
+        base_url +
+        "/search/movie?api_key=e778a222f0d3090ab9b3bb2dc8e75472&query=" +
+        search;
+      setUrl(url);
+      setSearch(" ");
     }
   };
 
   return (
-    <div>
-      <header className={"header"}>
+    <>
+      <header className="header">
         <nav>
           <ul>
             {arr.map((value) => {
@@ -101,15 +101,15 @@ const App = () => {
       </header>
 
       <div className="container center">
-        {movies.length === 0 ? (
-          <p className={"notfound"}>Not Found</p>
+        {movies.length == 0 ? (
+          <p className="notfound">Not Found</p>
         ) : (
           movies.map((movie) => {
             return <MovieCard key={movie.id} movie={movie} />;
           })
         )}
       </div>
-    </div>
+    </>
   );
 };
 
